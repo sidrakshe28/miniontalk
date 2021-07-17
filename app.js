@@ -2,34 +2,37 @@ var btnTranslate =document.querySelector("#btn-translate");
 var txtInput=document.querySelector("#txt-input");
 var outputDiv=document.querySelector("#output");
 
-//console.log(txtInput);
-var serverURL="https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
 
-function getTrnaslateURL(text){
-    return serverURL +" ?" + "text=" +text;
+var serverURL="https://api.funtranslations.com/translate/minion.json";
+
+function getTranslateURL(text){
+    return serverURL + "?" + "text=" + text
 }
+
 
 
 function errorHandler(error){
     console.log("error occured",error);
+    alert("something wrong happend")
 }
 
 
-function clickeventhandler(){
+function clickHandler(){
     var inputText=txtInput.value;
 
     //calling server for processing
-    fetch(getTrnaslateURL(inputText))
-    .then(response =>response.json())
-    .then(json=>console.log(json.contents.translated))
+    fetch(getTranslateURL(inputText))
+
+        .then(response => response.json())
+        .then(json => {
+            var translateText=json.contents.translated;
+             outputDiv.innerHTML=translateText;
+
+    })
     .catch(errorHandler)
 
-    fetch(getTrnaslateURL(text))
 
 
-    //outputDiv.innerText="aass"+txtInput.value;
+};
 
-
-}
-
-btnTranslate.addEventListener("click", clickeventhandler)
+btnTranslate.addEventListener("click", clickHandler)
