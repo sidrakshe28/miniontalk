@@ -1,0 +1,26 @@
+textarea{
+    width:90%;
+    height:10vh;
+    display:block;
+    margin:1rem;
+}
+
+#output{
+    border:1px solid black;
+    height:10vh;
+    width:80%;
+    margin:1rem;
+    padding: 1rem;
+}
+
+h1{
+    text-align: center;
+}
+
+.mini{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+}
