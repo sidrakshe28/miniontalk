@@ -10,13 +10,19 @@ function getTrnaslateURL(text){
 }
 
 
+function errorHandler(error){
+    console.log("error occured",error);
+}
+
+
 function clickeventhandler(){
     var inputText=txtInput.value;
 
     //calling server for processing
     fetch(getTrnaslateURL(inputText))
     .then(response =>response.json())
-    .then(json=>console.log(json))
+    .then(json=>console.log(json.contents.translated))
+    .catch(errorHandler)
 
     fetch(getTrnaslateURL(text))
 
